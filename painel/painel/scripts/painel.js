@@ -1,3 +1,4 @@
+window.jsPDF = window.jspdf.jsPDF
 //verifica se algum arquivo foi salvo
 let queryString = window.location.search; 
 // Variável para rastrear o número da página atual
@@ -304,7 +305,45 @@ filtroForm.addEventListener("submit", function (event) {
         });
 });
 
+function baixarExcel()
+{
+    const tabela = document.querySelector("table");
 
+    const data = XLSX.utils.table_to_book(tabela, { sheet: "Sheet1" });
+
+    // Converte para um array de bytes
+    const arrayBuffer = XLSX.write(data, { bookType: "xlsx", type: "array" });
+
+    // Cria um Blob a partir do array de bytes
+    const blob = new Blob([arrayBuffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+
+    // Cria um objeto URL do Blob
+    const blobUrl = URL.createObjectURL(blob);
+
+    // Cria um link para fazer o download
+    const a = document.createElement("a");
+    a.href = blobUrl;
+    a.download = "dados.xlsx";
+    document.body.appendChild(a);
+
+    // Simula um clique no link para iniciar o download
+    a.click();
+
+    // Limpa o link
+    document.body.removeChild(a);
+}
+
+function baixarPDF()
+{
+    window.jsPDF = window.jspdf.jsPDF
+    const tabela = document.querySelector("table");
+    
+    const doc = new jsPDF();
+    
+    doc.autoTable({ html: tabela });
+    
+    doc.save("tabela.pdf");
+}
 
 
 
