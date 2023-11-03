@@ -107,7 +107,7 @@
             </div>
 
             <div class="d-flex justify-content-between align-items-end mb-3">
-                <form action="" class="bg-custom rounded col-12 py-3 px-4">
+                <form action="" class="bg-custom rounded col-12 py-3 px-4" id="filtro">
                     
                     <div class="row align-items-end row-gap-4">
                         <div class="col-3 d-flex flex-wrap">
@@ -151,11 +151,17 @@
 
 
             <div class="bg-custom rounded overflow-hidden">
+                <div id="loading-spinner" class="text-center spinner" style="display: none;">
+                    <img src="./img/Spinner-1s-84px.svg" alt="Carregando..." />
+                  </div>
+                  
                 <table class="table mb-0 table-custom table-dark align-middle">
                     <thead>
                         <tr>
                             <th scope="col" class="text-uppercase">Usuário</th>
                             <th scope="col" class="text-uppercase">E-mail</th>
+                            <th scope="col" class="text-uppercase">Perfil</th>
+                            <th scope="col" class="text-uppercase">Status</th>
                             <th scope="col" class="text-uppercase text-center">Ações</th>
                         </tr>
                     </thead>
@@ -166,11 +172,11 @@
 
             <nav aria-label="navigation">
                 <ul class="pagination justify-content-end pt-4 pb-2">
-                    <li class="page-item"><a class="page-link bg-custom border-dark link-light" href="#">Anterior</a></li>
-                    <li class="page-item"><a class="page-link bg-custom border-dark link-light" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link bg-custom border-dark link-light" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link bg-custom border-dark link-light" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link bg-custom border-dark link-light" href="#">Próximo</a></li>
+                    <li class="page-item"><a id="botao-anterior" class="page-link bg-custom border-dark link-light" href="#">Anterior</a></li>
+                    <li class="page-item"><a class="page-link bg-custom border-dark link-light" href="#" onclick="carregarPagina(1)">1</a></li>
+                    <li class="page-item"><a class="page-link bg-custom border-dark link-light" href="#" onclick="carregarPagina(2)">2</a></li>
+                    <li class="page-item"><a class="page-link bg-custom border-dark link-light" href="#" onclick="carregarPagina(3)">3</a></li>
+                    <li class="page-item"><a id="botao-proximo" class="page-link bg-custom border-dark link-light" href="#">Próximo</a></li>
                 </ul>
             </nav>
         </main>

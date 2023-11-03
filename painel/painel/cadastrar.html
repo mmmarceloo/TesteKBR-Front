@@ -90,7 +90,9 @@
 
                 <a href="painel.html" class="btn btn-light">Voltar</a>
             </div>
-
+            <div id="loading-spinner" class="text-center spinner" style="display: none;">
+                <img src="./img/Spinner-1s-84px.svg" alt="Carregando..." />
+              </div>
             <form action="" id="form_registro_novo_usuario" class="bg-custom rounded col-12 py-3 px-4">
                 
                 <div class="mb-3 row">
@@ -106,7 +108,24 @@
                         <input type="email" class="form-control bg-dark text-light border-dark" id="email" placeholder="Ex: admin@kbrtec.com.br" required>
                     </div>
                 </div>
-
+                <div class="mb-3 row">
+                    <label for="perfil" class="col-sm-2 col-form-label">Tipo:</label>
+                    <div class="col-sm-10">
+                        <select class="form-select bg-dark text-light border-dark" id="perfil" required>
+                            <option value="administrador">Administrador</option>
+                            <option value="usuario">Usuário</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="status" class="col-sm-2 col-form-label">Status:</label>
+                    <div class="col-sm-10">
+                        <select class="form-select bg-dark text-light border-dark" id="status" required>
+                            <option value="ativado">Ativado</option>
+                            <option value="desativado">Desativado</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="mb-3 row">
                     <label for="senha" class="col-sm-2 col-form-label">Senha:</label>
                     <div class="col-sm-10">

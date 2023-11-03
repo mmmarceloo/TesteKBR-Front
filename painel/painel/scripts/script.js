@@ -39,3 +39,19 @@ function mensagemSucesso(texto)
         title: texto
       })
 }
+
+async function mensagemConfirmacao(texto) {
+  const result = await Swal.fire({
+      title: texto,
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: 'Sim',
+      denyButtonText: 'Não',
+  });
+
+  if (result.isConfirmed) {
+      return true;
+  } else if (result.isDenied) {
+      return false;
+  }
+}
