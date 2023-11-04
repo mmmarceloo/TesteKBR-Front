@@ -220,6 +220,18 @@ function ver(evento) {
             preencherModal(usuario, email, status);
 }
 
+// Função para adicionar evento de clique aos botões "Ver"
+function novaSenha(evento) {
+    // Obtém os valores da linha clicada
+    const linha = evento.closest("tr");
+    const usuario = linha.querySelector("td:nth-child(1)").textContent;
+    const email = linha.querySelector("td:nth-child(2)").textContent;
+    const status = linha.querySelector("td:nth-child(4)").textContent;
+
+    // Preenche o modal com os valores
+    preencherModal(usuario, email, status);
+}
+
 function editar(element) {
     // Obtém a linha pai do botão de "Editar" (onde estão os dados)
     const linha = element.closest("tr");
@@ -343,6 +355,64 @@ function baixarPDF()
     doc.autoTable({ html: tabela });
     
     doc.save("tabela.pdf");
+}
+
+function salvarNovaSenha()
+{
+    document.getElementById("loading-spinner").style.display = "block";
+    const senhaAtual = document.querySelector("#senhaAtual").value;
+    const novaSenha = document.querySelector("#novaSenha").value;
+    const confSenha = document.querySelector("#confSenha").value;
+
+      // Valide se os campos estão preenchidos corretamente
+      if (!senhaAtual || !novaSenha || !confSenha) {
+        document.getElementById("loading-spinner").style.display = "none";
+        mensagemErro("Por favor, preencha todos os campos.");
+        return;
+    }
+
+    if (novaSenha !== confSenha) {
+        document.getElementById("loading-spinner").style.display = "none";
+        mensagemErro("A nova senha e a confirmação de senha não coincidem.");
+        return;
+    }
+
+    // Prepare os dados para enviar para o servidor
+    const data = {
+        Id: idUsuario, // variavel global de id do usuario
+        Senha_Antiga: senhaAtual,
+        Senha_Nova: novaSenha,
+    };
+    const path = pathServidor + "usuarios/muda-senha";
+    fetch(path, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    })
+        .then(response => {
+            console.log("response");
+            console.log(response);
+            return response.json(); // Retorne a promessa resultante
+        })
+        .then(data => {
+            console.log("data-> ")
+            console.log(data);
+            document.getElementById("loading-spinner").style.display = "none";
+            if (data.message === "Senha alterada com sucesso.") {
+                mensagemSucesso(data.message);
+                // Redirecione ou atualize a página conforme necessário
+            } else {
+                mensagemErro("Erro ao alterar a senha. Verifique as informações fornecidas.");
+            }
+        })
+        .catch(error => {
+            document.getElementById("loading-spinner").style.display = "none";
+            mensagemErro("Ocorreu um erro ao processar a solicitação: " + error);
+        });
+    
+
 }
 
 

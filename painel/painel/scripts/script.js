@@ -1,4 +1,14 @@
-window.pathServidor = "https://localhost:7054/";
+document.addEventListener('DOMContentLoaded', function () {
+  //configura dados de login
+  const mensagem_boas_vindas = document.querySelector("#mensagem-boas-vindas");
+  if(mensagem_boas_vindas)
+  {
+    const dadosDoUsuario = JSON.parse(localStorage.getItem('dadosDoUsuario'));
+    window.idUsuario = dadosDoUsuario.id; // cria uma variavel global com o id do usuario
+    mensagem_boas_vindas.innerText = "Bem vindo(a) " + dadosDoUsuario.nome;
+  }
+});
+window.pathServidor = "https://localhost:7054/"; // substitua aqui para um novo servidor
 
 function mensagemErro(texto)
 {
