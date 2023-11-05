@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBRTEC ADMIN</title>
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="bg-dark">
+    <header class="bg-light py-2 shadow">
+        <div class="container-fluid">
+            <div class="row">
+                <div style="width: 250px;">
+                    <img src="img/kbrtec.webp" alt="KBRTEC" height="60" width="150" class="object-fit-contain">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="py-5" style="min-height: calc(100vh - 72px);">
+        <div class="container">
+            <div class="bg-custom mx-auto row col-8 rounded shadow-sm overflow-hidden">
+                <div class="col-6 bg-white p-5 d-flex align-items-center justify-content-center">
+                    <img src="img/kbrtec.webp" alt="KBRTEC" height="200" width="200" class="object-fit-contain">
+                </div>
+                <div id="loading-spinner" class="text-center spinner" style="display: none;">
+                    <img src="./img/Spinner-1s-84px.svg" alt="Carregando..." />
+                </div>
+                <div class="col-6 d-flex align-items-center p-5">
+                    <form action="" class="form w-100">
+                        <h2 class="h4 text-light">Redefinição de senha</h2>
+                        <div class="mb-3 row">
+                            <label for="novaSenha" class="col-sm-6 text-light col-form-label">Nova Senha:</label>
+                            <div class="col-sm-6">
+                                <input type="password" class="form-control bg-dark text-light border-dark" id="novaSenha">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="confSenha" class="col-sm-6 text-light col-form-label">Confirmar Senha:</label>
+                            <div class="col-sm-6">
+                                <input type="password" class="form-control bg-dark text-light border-dark" id="confSenha">
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-end">
+                            <button type="button" class="btn btn-primary me-4" onclick="resetSenha()">Salvar</button>
+                            <button type="button" class="btn btn-danger">Cancelar</button>
+                        </div>
+                        <input type="hidden" id="tokenField" name="token" value="">
+                    </form>
+                </div>
+                <a href="login.html" class="link-light text-end mb-3">Ir para login</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-custom text-light text-center py-4">
+        <small>© Copyright 2023 - KBR TEC - Todos os Direitos Reservados</small>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/reset-senha.js"></script>
+</body>
+</html>

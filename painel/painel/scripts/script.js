@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     mensagem_boas_vindas.innerText = "Bem vindo(a) " + dadosDoUsuario.nome;
   }
 });
+
 window.pathServidor = "https://localhost:7054/"; // substitua aqui para um novo servidor
 
 function mensagemErro(texto)
