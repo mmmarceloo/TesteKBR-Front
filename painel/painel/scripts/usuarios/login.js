@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     localStorage.setItem('dadosDoUsuario', JSON.stringify(data));
 
-                    window.location.href = `painel.html`;
+                    window.location.href = `index.html`;
                 });
             } else {
                 document.getElementById("loading-spinner").style.display = "none";

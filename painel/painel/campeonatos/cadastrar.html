@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBRTEC ADMIN</title>
+
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.min.css" rel="stylesheet">
+
+</head>
+<body class="bg-dark h-100">
+    <header class="bg-light py-2 shadow">
+        <div class="container-fluid">
+            <div class="row">
+                <div style="width: 250px;">
+                    <img src="../img/kbrtec.webp" alt="KBRTEC" height="60" width="150" class="object-fit-contain">
+                </div>
+                <nav class="col navbar navbar-expand">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../usuarios/painel.html">Usuários</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Atletas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../campeonatos/painel.html">Campeonatos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="col dropdown d-flex align-items-center justify-content-end">
+                    <div id="mensagem-boas-vindas" class="d-flex align-items-center dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill ms-2" viewBox="0 0 16 16">
+                            <path fill="#6c757D"  d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+                        </svg>
+                    </div>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item text-end" href="#">
+                                <small>Alterar Senha</small>
+                            </a>
+                            <a class="dropdown-item text-end" href="../login.html">
+                                <small>Sair</small>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="d-flex" style="min-height: calc(100vh - 76px - 72px);">
+        <aside class="bg-custom text-light py-4" style="width: 250px;">
+            <div class="menu">
+                <div class="item">
+                    <div class="w-100 d-flex align-items-center gap-2 link-light text-decoration-none mt-2 py-3 px-3 border-start border-light border-4" type="button" data-bs-toggle="collapse" data-bs-target="#menu-campeonato" aria-expanded="true" aria-controls="menu-campeonato">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                        </svg>
+    
+                        Usuários
+                    </div>
+
+                    <div class="collapse show" id="menu-campeonato">
+                        <div class="bg-dark d-flex flex-column rounded mx-4 p-2 row-gap-1">
+                            <a href="./cadastrar.html" class="submenu-link link-light text-decoration-none rounded p-2 active">
+                                <small class="d-flex justify-content-between align-items-center">
+                                    Cadastrar
+                                        
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                </small>
+                            </a>
+                            <a href="./painel.html" class="submenu-link link-light text-decoration-none rounded p-2">
+                                <small class="d-flex justify-content-between align-items-center">
+                                    Listagem
+                                </small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="../login.html" class="w-100 d-flex align-items-center gap-2 link-light text-decoration-none mt-2 py-3 px-3 ms-1 icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(-.125rem, 0, 0);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                        <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                    </svg>
+
+                    Sair
+                </a>
+            </div>
+        </aside>
+
+        <main class="col h-100 text-light p-4">
+            <div class="d-flex align-items-end justify-content-between mb-4">
+                <h1 class="h3">Cadastrar Campeonato</h1>
+
+                <a href="./painel.html" class="btn btn-light">Voltar</a>
+            </div>
+            <div id="loading-spinner" class="text-center spinner" style="display: none;">
+                <img src="../img/Spinner-1s-84px.svg" alt="Carregando..." />
+            </div>
+              <form action="" id="form_cadastro_campeonato" enctype="multipart/form-data" class="bg-custom rounded col-12 py-3 px-4">
+                <div class="mb-3 row">
+                    <label for="codigo" class="col-sm-2 col-form-label">Código:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control bg-dark text-light border-dark" id="codigo" required>
+                    </div>
+                </div>
+            
+                <div class="mb-3 row">
+                    <label for="titulo" class="col-sm-2 col-form-label">Título do Campeonato:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control bg-dark text-light border-dark" id="titulo" required>
+                    </div>
+                </div>
+            
+                <div class="mb-3 row">
+                    <label for="imagem" class="col-sm-2 col-form-label">Imagem:</label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control" id="imagem" required>
+                    </div>
+                </div>
+        
+                <div class="mb-3 row">
+                    <div class="col-sm-10 offset-sm-2">
+                        <button type="button" id="crop-imagem" class="btn btn-primary" style="display: none;">Selecionar e Cortar Imagem</button>
+                    </div>
+                </div>
+        
+                <div class="mb-3 row">
+                    <label id="label-imagem-cortada" for="imagem-preview" class="col-sm-2 col-form-label" style="display: none;">Imagem Cortada:</label>
+                    <div class="col-sm-10">
+                        <img id="imagem-preview" class="img-fluid">
+                        <img id="imagem-cortada-preview" class="img-fluid" style="display: none; max-width: 300px;">
+                    </div>
+                </div>
+                
+            
+                <div class="mb-3 row">
+                    <label for="cidadeEstado" class="col-sm-2 col-form-label">Cidade + Estado:</label>
+                    <div class="col-sm-10">
+                        <!-- Substitua este select com as opções reais de cidade + estado -->
+                        <select class="form-select bg-dark text-light border-dark" id="cidadeEstado" required>
+                            <option value="">Selecione uma opção</option>
+                            <!-- Adicione mais opções conforme necessário -->
+                        </select>
+                    </div>
+                </div>
+            
+                <div class="mb-3 row">
+                    <label for="dataRealizacao" class="col-sm-2 col-form-label">Data de Realização:</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control bg-dark text-light border-dark" id="dataRealizacao" required>
+                    </div>
+                </div>
+            
+                <div class="mb-3 row">
+                    <label for="sobreEvento" class="col-sm-2 col-form-label">Sobre o Evento:</label>
+                    <div class="col-sm-10">
+                        <textarea id="sobreEvento" class="text-dark" name="sobreEvento"></textarea>
+                    </div>
+                </div>
+        
+                <!-- Ginásio -->
+                <div class="mb-3 row">
+                    <label for="ginasio" class="col-sm-2 col-form-label">Ginásio:</label>
+                    <div class="col-sm-10">
+                        <textarea id="ginasio" name="ginasio"></textarea>
+                    </div>
+                </div>
+        
+                <!-- Informações Gerais -->
+                <div class="mb-3 row">
+                    <label for="informacoesGerais" class="col-sm-2 col-form-label">Informações Gerais:</label>
+                    <div class="col-sm-10">
+                        <textarea id="informacoesGerais" name="informacoesGerais"></textarea>
+                    </div>
+                </div>
+        
+                <!-- Entrada ao Público (CKEditor) -->
+                <div class="mb-3 row">
+                    <label for="entradaPublico" class="col-sm-2 col-form-label">Entrada ao Público:</label>
+                    <div class="col-sm-10">
+                        <textarea id="entradaPublico" name="entradaPublico"></textarea>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-sm-2 mt-2">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="tipo" name="tipo" value="Destaque">
+                            <label class="form-check-label" for="tipo">Destaque</label>
+                        </div>
+                    </div>
+                
+                    <label for="fase" class="col-sm-1 col-form-label">Fase:</label>
+                    <div class="col-sm-4">
+                        <select class="form-select bg-dark text-light border-dark" id="fase" name="fase">
+                            <option value="Inscricoes Abertas" selected>Inscrições Abertas</option>
+                            <option value="Chaves de Lutas">Chaves de Lutas</option>
+                            <option value="Resultados">Resultados</option>
+                            <!-- Adicione mais opções conforme necessário -->
+                        </select>
+                    </div>
+                
+                    <label for="status" class="col-sm-1 col-form-label">Status:</label>
+                    <div class="col-sm-4">
+                        <select class="form-select bg-dark text-light border-dark" id="status" name="status">
+                            <option value="Ativo" selected>Ativo</option>
+                            <option value="Inativo">Inativo</option>
+                        </select>
+                    </div>
+                </div>
+                
+                
+                
+            
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-light" onclick="CadastrarCampeonato()">Cadastrar Campeonato</button>
+                </div>
+                <input type="hidden" id="x" name="x">
+                <input type="hidden" id="y" name="y">
+                <input type="hidden" id="w" name="w">
+                <input type="hidden" id="h" name="h">
+            </form>
+
+            <div class="bg-custom rounded overflow-hidden">
+
+            </div>
+        </main>
+    </div>
+
+    <footer class="bg-custom text-light text-center py-4">
+        <small>© Copyright 2023 - KBR TEC - Todos os Direitos Reservados</small>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/campeonatos/cadastrar.js"></script>
+</body>
+</html>
