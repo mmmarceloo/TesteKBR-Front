@@ -49,6 +49,7 @@ function preecheCampos(campeonato)
     document.getElementById("informacoesGerais").value = campeonato.informacoesGerais;
     document.getElementById("entradaPublico").value = campeonato.entradaPublico;
     document.getElementById("fase").value = campeonato.fase;
+    document.getElementById("tipo").value = campeonato.tipo;
     document.getElementById("status").value = campeonato.status;
 
     setarSelect(campeonato.fase, "status");
@@ -58,7 +59,7 @@ function preecheCampos(campeonato)
     setaTextArea(campeonato);
     if(campeonato.destaque == "true")
     {
-      document.querySelector("#tipo").checked = true
+      document.querySelector("#destaque").checked = true
     }
     const imagem = document.querySelector("#imagem-preview");
     imagem.display = 'block';
@@ -151,7 +152,8 @@ function atualizarCampeonato() {
     const id = document.getElementById('id').value;
     const cidadeEstado = document.getElementById('cidadeEstado').value;
     const dataRealizacao = document.getElementById('dataRealizacao').value;
-    const destaque = document.querySelector("#tipo").checked;
+    const destaque = document.querySelector("#destaque").checked;
+    const tipo = document.querySelector("#tipo").value;
     const fase = document.querySelector("#fase").value;
     const status = document.querySelector("#status").value;
 
@@ -167,6 +169,7 @@ function atualizarCampeonato() {
         InformacoesGerais: conteudoInformacoesGerais.getData(),
         EntradaPublico: entradaPublico.getData(),
         Destaque: destaque.toString(),
+        Tipo: tipo,
         Fase: fase,
         Status: status
     }

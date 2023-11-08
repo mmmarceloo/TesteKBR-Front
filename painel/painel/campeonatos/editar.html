@@ -177,13 +177,19 @@
                 <div class="mb-3 row">
                     <div class="col-sm-2 mt-2">
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="tipo" name="tipo" value="Destaque">
-                            <label class="form-check-label" for="tipo">Destaque</label>
+                            <input type="checkbox" class="form-check-input" id="destaque" name="destaque" value="Destaque">
+                            <label class="form-check-label" for="destaque">Destaque</label>
                         </div>
                     </div>
-                
+                    <label for="tipo" class="col-sm-1 col-form-label">Tipo:</label>
+                    <div class="col-sm-2">
+                        <select class="form-select bg-dark text-light border-dark" id="tipo" name="tipo">
+                            <option value="Kimono" selected>Kimono</option>
+                            <option value="No-Gi">No-Gi</option>
+                        </select>
+                    </div>
                     <label for="fase" class="col-sm-1 col-form-label">Fase:</label>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <select class="form-select bg-dark text-light border-dark" id="fase" name="fase">
                             <option value="Inscricoes Abertas" selected>Inscrições Abertas</option>
                             <option value="Chaves de Lutas">Chaves de Lutas</option>
@@ -193,7 +199,7 @@
                     </div>
                 
                     <label for="status" class="col-sm-1 col-form-label">Status:</label>
-                    <div class="col-sm-4">
+                    <div class="col-sm-2">
                         <select class="form-select bg-dark text-light border-dark" id="status" name="status">
                             <option value="Ativo" selected>Ativo</option>
                             <option value="Inativo">Inativo</option>

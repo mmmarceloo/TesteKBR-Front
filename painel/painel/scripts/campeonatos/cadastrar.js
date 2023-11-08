@@ -122,7 +122,8 @@ function CadastrarCampeonato()
     const arquivoImagem = document.getElementById('imagem').files[0];
     const cidadeEstado = document.getElementById('cidadeEstado').value;
     const dataRealizacao = document.getElementById('dataRealizacao').value;
-    const destaque = document.querySelector("#tipo").checked;
+    const destaque = document.querySelector("#destaque").checked;
+    const tipo = document.querySelector("#tipo").value;
     const fase = document.querySelector("#fase").value;
     const status = document.querySelector("#status").value;
 
@@ -137,6 +138,7 @@ function CadastrarCampeonato()
         InformacoesGerais: conteudoInformacoesGerais.getData(),
         EntradaPublico: entradaPublico.getData(),
         Destaque: destaque.toString(),
+        Tipo: tipo,
         Fase: fase,
         Status: status
     }
